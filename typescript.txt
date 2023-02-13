@@ -1,0 +1,3 @@
+Statically typed languages (Java, C++, C#): each variable and expression is already known at compile time.
+Dynamically typed languages(JavaScript, Python, Ruby): variables can receive different values at runtime and their type is defined at run time.
+TypeScript solves the problem that JS has with not knowing the type before compiling. 

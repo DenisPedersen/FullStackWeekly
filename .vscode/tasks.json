@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "typescript",
+			"tsconfig": "Fullstack_week3/TypeScript_tutorial/tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build",
+			"label": "tsc: build - Fullstack_week3/TypeScript_tutorial/tsconfig.json"
+		}
+	]
+}

@@ -1,5 +1,5 @@
 //OPTIONAL CHAINING:
-type Customer = {
+/* type Customer = {
   birthday?: Date
 }
 
@@ -9,7 +9,7 @@ function getCustomer(id: number): Customer | null {
 
 let customer = getCustomer(0);
 //Optional property acces operator   ?
-console.log(customer?.birthday?.getFullYear);
+console.log(customer?.birthday?.getFullYear); */
 
 //optional element acces operator, useful in arrays
 // customers?.[0]

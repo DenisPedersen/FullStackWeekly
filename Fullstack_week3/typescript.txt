@@ -9,3 +9,7 @@ The drawbacks are:
 To compile a JavaScript-file from a TypeScript-file use:
         tsc index.ts (or whatever_your_file_is_called.ts)
 
+
+Catches errors early in the development
+Serves as documentation
+

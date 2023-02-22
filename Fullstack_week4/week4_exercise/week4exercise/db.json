@@ -1,0 +1,12 @@
+{"person":[
+  {"name":"Bjarne", "age":50, "occupation":"Doctor"},
+  {"name":"Arne", "age":40, "occupation":"Unemployed"},
+  {"name":"John", "age":98, "occupation":"Retired"},
+  {"name":"Thomas", "age":52, "occupation":"Teacher"},
+  {"name":"Inge", "age":10, "occupation":"Student"},
+  {"name":"Nicolai", "age":53, "occupation":"Teacher"},
+  {"name":"Jens", "age":33, "occupation":"Doctor"},
+  {"name":"Sigge", "age":7, "occupation":"Student"},
+  {"name":"Siv", "age":34, "occupation":"Nurse"},
+  {"name":"Jan", "age":2, "occupation":"Student"}
+]}

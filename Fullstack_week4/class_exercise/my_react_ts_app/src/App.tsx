@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-
+import AddPeople from './AddPeople'
 
 export interface IPeople {
   people: {
@@ -43,21 +43,22 @@ const PeopleViewer: React.FC<IPeople> = ({people}) => {
     
   return people.map((person) => {
     return (
-      <ul>
-        <div>
+      <li className='List'>
+        <div className='List-Header'>
+          <h2>Name: {person.name}</h2>
           <p>Id: {person.id}</p>
-          <p>Name: {person.name}</p>
           <p>City: {person.city}</p>
           <p>Age: {person.age}</p>
         </div>
-      </ul>
+      </li>
     )
   })
 }
   return ( 
-    <ul>
+    <div>
       {peopleList()}
-    </ul>
+      {AddPeople(people)}
+    </div>
   )
 }
 
@@ -65,14 +66,18 @@ const PeopleViewer: React.FC<IPeople> = ({people}) => {
 
 /* Class Exercise 1
 
-    Start a new react project with typescript using vite: npm init vite@latest my_react_ts_app -- --template react-ts
-    Run the project: npm run dev
-    Open the project in your editor and open the App.tsx file.
-    Change the text in the App.tsx file to something else.
-    Save the file and see the changes in the browser.
-    Open the App.tsx file again and change the to render a Person component, that can show details about a person based on the props that you pass to it. Let a person have the following properties:
+    
+    Create a new project with npm init vite@latest my-react-ts-app -- --template react-ts
+    Create a small web application using react and typescript to display a list of people. The application should have the following features:
 
-    name: string
-    age: number
-    email: string */
+    A list of people with their name, age, and occupation
+    A button that adds a new person to the list
+    A button that removes the last person from the list
+    A button that sorts the list by age
+    A form to add a new person to the list
+    A form to update a persons details
 
+    Use a json-server to store the data. You can use the following command to start the server:
+
+    npx json-server --watch db.json --port 3001
+ */

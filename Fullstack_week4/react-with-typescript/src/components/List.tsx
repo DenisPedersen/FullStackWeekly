@@ -20,9 +20,9 @@ const List: React.FC<IProps> = ({people}) => {
         })
     }
     return (
-        <ul>
+        <li>
             {renderList()}
-        </ul>
+        </li>
     )
 }
 

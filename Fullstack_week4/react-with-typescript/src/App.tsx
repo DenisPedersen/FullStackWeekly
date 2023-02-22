@@ -4,7 +4,6 @@ import './App.css';
 import List from './components/List';
 import AddToList from './components/AddToList';
 
-
 export interface IState {
   people: {
     name: string
@@ -15,8 +14,6 @@ export interface IState {
 }
 
 function App() {
-
-
 
   const [people, setPeople] = useState<IState['people']>([
     {

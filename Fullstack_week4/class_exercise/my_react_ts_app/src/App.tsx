@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+
 export interface IPeople {
   people: {
       id: number
@@ -12,7 +13,7 @@ export interface IPeople {
 }
 
 
-function App() {
+function App(): JSX.Element {
   const [people, setPeople] = useState<IPeople["people"]>([])
 
   async function fetchPeople() {
@@ -37,19 +38,19 @@ const morePeople = fetchPeople()
 
 export default App
 
-const PeopleViewer = ({people}) => {
-  const peopleList = (): JSX.Element => {
+const PeopleViewer: React.FC<IPeople> = ({people}) => {
+  const peopleList = () => {
     
   return people.map((person) => {
     return (
-      <li>
+      <ul>
         <div>
-          <h2>Id: {person.id}</h2>
-          <h2>Name: {person.name}</h2>
-          <h2>City: {person.city}</h2>
-          <h2>Age: {person.age}</h2>
+          <p>Id: {person.id}</p>
+          <p>Name: {person.name}</p>
+          <p>City: {person.city}</p>
+          <p>Age: {person.age}</p>
         </div>
-      </li>
+      </ul>
     )
   })
 }

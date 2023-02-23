@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import AddToList from './components/AddToList'
 import List from './components/List'
@@ -20,7 +20,9 @@ function App() {
     setPeople(data) 
     console.log(people)
   }
-  fetchPeople()
+  useEffect (()=> {
+    fetchPeople()
+  },[])
 
   return (
     <div className="App">

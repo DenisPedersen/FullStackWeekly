@@ -5,9 +5,11 @@ import List from './components/List'
 
 export interface IState {
   people: {
+    id: number
     name: string
     age: number
     occupation: string
+    img: string
   }[]
 }
 

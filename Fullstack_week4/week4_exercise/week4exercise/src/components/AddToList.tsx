@@ -9,9 +9,11 @@ interface IProps {
 const AddToList: React.FC<IProps> = ( {setPeople, people}) => {
 
     const [input, setInput] = useState({
+        id: "",
         name: "",
         age: "",
-        occupation: ""
+        occupation: "",
+        img: "",
     })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -44,35 +46,94 @@ const AddToList: React.FC<IProps> = ( {setPeople, people}) => {
             }));
             ;
         setInput( {
+            id: "",
             name: "",
             age: "",
-            occupation: ""
+            occupation: "",
+            img: ""
         })
     };
     
-
+    const postData = async () => {
+        const url = "http://localhost:3008/person";
+        const data = {
+          id: parseInt(input.id),
+          name: input.name,
+          occupation: input.occupation,
+          img: input.img
+        };
+        const options = {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        try {
+          const response = await fetch(url, options);
+          const responseData = await response.json();
+          console.log(responseData);
+        } catch (error) {
+          console.error(error);
+        }
+        setPeople([
+            ...people, 
+            {
+                id: parseInt(input.id),
+                name: input.name,
+                age: parseInt(input.age),
+                occupation: input.occupation,
+                img: input.img
+            }
+        ]); 
+        setInput( {
+            id: "",
+            name: "",
+            age: "",
+            occupation: "",
+            img: ""
+        })
+      };
+      
          
-    const handleClick = () => {
+   /*  const handleClick = () => {
         if(
             !input.name  || !input.age
         ) {
             return
         }
-        setPeople([
+        fetch("http://localhost:3008/person", {
+            method: "POST",
+            body: JSON.stringify({
+              name: input.name,
+              age: parseInt(input.age),
+              occupation: input.occupation,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+          
+
+         setPeople([
             ...people, 
             {
+                id: parseInt(input.id),
                 name: input.name,
                 age: parseInt(input.age),
                 occupation: input.occupation
             }
-        ]);
+        ]); 
         setInput( {
+            id: "",
             name: "",
             age: "",
             occupation: ""
         })
     }
-
+ */
     return (
         <div className="AddToList">
             <input
@@ -99,7 +160,15 @@ const AddToList: React.FC<IProps> = ( {setPeople, people}) => {
                 onChange={handleChange}
                 name="occupation"
             />
-            <button className="AddToList-btn" onClick={handleClick}>
+            <input
+                type="text"
+                placeholder="img-url"
+                className="AddToList-input"
+                value={input.img}
+                onChange={handleChange}
+                name="img"
+            />
+            <button className="AddToList-btn" onClick={postData}>
                 Add to List
             </button>
             <button className="AddToList-btn" onClick={removeLastFromList}>
